@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import Pizza from "../models/Pizza";
 import EditPizzaForm from './EditPizzaForm';
@@ -13,7 +13,6 @@ interface SinglePizzaProps {
 
 const SinglePizza: FC<SinglePizzaProps> = ({ pizza, updatePizza, deletePizza }) => {
   const [edit, setEdit] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   const handleToggleEdit = () => {
     setEdit(!edit);
@@ -23,17 +22,13 @@ const SinglePizza: FC<SinglePizzaProps> = ({ pizza, updatePizza, deletePizza }) 
     deletePizza(pizza.id);
   }
 
-  const handleChangeRoute = () => {
-    navigate(`/pizza/${pizza.id}`);
-  }
-
   return (
     <div className="pizza">
       <img
         src={`/images/${pizza.img}`}
         alt={pizza.title}
       />
-      <h2 onClick={handleChangeRoute}>{pizza.title}</h2>
+      <h2><Link to={`/pizza/${pizza.id}`}>{pizza.title}</Link></h2>
       <span>{pizza.price} ₽</span>
       
       <div className="pizza-controls">

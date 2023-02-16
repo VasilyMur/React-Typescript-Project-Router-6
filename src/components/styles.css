@@ -93,7 +93,10 @@ input[type=submit] {
   margin-right: 10px;
   color: #392e4a;
 }
-
+.pizza a {
+  color: #fff;
+  text-decoration: none;
+}
 .pizza h2 {
   margin: 0 40px;
   text-align: center;
@@ -104,7 +107,6 @@ input[type=submit] {
   font-size: 27px;
   color: white;
   padding: 0 7px;
-  cursor: pointer;
 }
 
 /*Edit form*/
